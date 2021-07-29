@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        REGISTRY = salamislicing
+        REGISTRY = 'salamislicing'
         REGISTRY_CREDENTIAL = 'salamislicing-docker'
     }
     agent {

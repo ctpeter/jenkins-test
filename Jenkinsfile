@@ -35,8 +35,8 @@ pipeline {
         stage('K3S Deploy') {
             steps {
                     sh '''
-                    /usr/local/bin/helm package charts/${SERVICE} --app-version ${VERSION}
-                    #helm upgrade --history-max=5 --install=true --namespace=salami --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz
+                    /usr/local/bin/helm package ${SERVICE} --app-version ${VERSION}
+                    helm upgrade --history-max=5 --install=true --namespace=demo --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz
                     '''
             }
         }

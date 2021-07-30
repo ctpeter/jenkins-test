@@ -2,7 +2,6 @@ pipeline {
     environment {
         REGISTRY = 'salamislicing'
         REGISTRY_CREDENTIAL = 'salamislicing-docker'
-        SERVICE-NAME = readMavenPom().getArtifact()
         SERVICE = readMavenPom().getArtifact()
         VERSION = readMavenPom().getVersion()
     }
@@ -18,13 +17,13 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                    sh "docker build -t ${REGISTRY}:${SERVICE-NAME}-${VERSION} ."
+                    sh "docker build -t ${REGISTRY}:${SERVICE}-${VERSION} ."
             }
         }
         stage('Docker Push') {
             steps {
                     withDockerRegistry([credentialsId: "${REGISTRY_CREDENTIAL}",url: ""]) {
-                    sh "docker push ${REGISTRY}:${SERVICE-NAME}-${VERSION}"
+                    sh "docker push ${REGISTRY}:${SERVICE}-${VERSION}"
             }
 
         }

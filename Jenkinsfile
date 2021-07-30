@@ -2,6 +2,9 @@ pipeline {
     environment {
         REGISTRY = 'salamislicing'
         REGISTRY_CREDENTIAL = 'salamislicing-docker'
+        SERVICE-NAME = readMavenPom().getArtifact()
+        SERVICE = readMavenPom().getArtifact()
+        VERSION = readMavenPom().getVersion()
     }
     agent { node { label 'master' } }
     stages {

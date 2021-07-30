@@ -12,7 +12,7 @@ pipeline {
                     sh 'export M2_HOME=/usr/local/apache-maven'
                     sh 'export M2=$M2_HOME/bin'
                     sh 'export PATH=$M2:$PATH'
-                    sh '/usr/local/apache-maven/bin/mvn clean package'
+                    sh 'JAVA_HOME=/opt/java/jdk1.8.0_291 /usr/local/apache-maven/bin/mvn clean package'
             }
         }
         stage('Docker Build') {

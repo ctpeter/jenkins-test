@@ -3,7 +3,7 @@ pipeline {
         REGISTRY = 'salamislicing'
         REGISTRY_CREDENTIAL = 'salamislicing-docker'
         SERVICE = 'demo'
-        VERSION = '0.0.1-SNAPSHOT'
+        VERSION = '0.1.2'
     }
     agent { node { label 'master' } }
     stages {

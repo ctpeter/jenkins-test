@@ -18,6 +18,8 @@ pipeline {
         stage('Docker Build') {
             steps {
                     sh '''
+                    export IMAGE_ID=`docker image ls --filter reference=*${SERVICE}* -q`
+                    docker image rm -f $IMAGE_ID
                     docker build -t ${REGISTRY}:${SERVICE}-${VERSION} .
                     export IMAGE_ID=`docker image ls --filter reference=*${SERVICE}* -q`
                     docker tag $IMAGE_ID ${REGISTRY}/${SERVICE}:${VERSION}
@@ -37,7 +39,7 @@ pipeline {
                     sh '''
                     export KUBECONFIG=/var/lib/jenkins/k3s.yaml
                     /usr/local/bin/helm package ${SERVICE} --version ${VERSION}
-                    /usr/local/bin/helm upgrade --history-max=5 --install=true --namespace=demo --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz
+                    /usr/local/bin/helm upgrade --history-max=5 --install --namespace=demo --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz
                     '''
             }
         }

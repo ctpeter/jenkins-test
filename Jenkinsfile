@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                     sh "docker build -t ${REGISTRY}:${SERVICE}-${VERSION} ."
-                    sh "IMAGE_ID=`docker image ls --filter "reference=*${SERVICE}*" -q`
+                    sh "IMAGE_ID=`docker image ls --filter "reference=*${SERVICE}*" -q`"
                     sh "docker tag $IMAGE_ID ${REGISTRY}/${SERVICE}:${VERSION}"
             }
         }

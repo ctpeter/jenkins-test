@@ -9,7 +9,8 @@ pipeline {
             steps {
                     sh 'export M2_HOME=/usr/local/apache-maven'
                     sh 'export M2=$M2_HOME/bin'
-                    sh 'mvn clean package'
+                    sh 'export PATH=$M2:$PATH'
+                    sh '/usr/local/apache-maven/bin/mvn clean package'
             }
         }
         stage('Docker Build') {

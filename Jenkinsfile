@@ -7,6 +7,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                    sh 'export M2_HOME=/usr/local/apache-maven'
+                    sh 'export M2=$M2_HOME/bin'
                     sh 'mvn clean package'
             }
         }

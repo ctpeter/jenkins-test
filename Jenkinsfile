@@ -3,12 +3,7 @@ pipeline {
         REGISTRY = 'salamislicing'
         REGISTRY_CREDENTIAL = 'salamislicing-docker'
     }
-    agent {
-        kubernetes {
-            defaultContainer 'salamiscling'
-            yamlFile 'build.yaml'
-        }
-    }
+    agent { node { label 'master' } }
     stages {
         stage('Build') {
             steps {

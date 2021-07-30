@@ -7,24 +7,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                container('maven') {
                     sh 'mvn clean package'
-                }
             }
         }
         stage('Docker Build') {
             steps {
-                container('docker') {
                     sh "docker build -t ${REGISTRY}:${SERVICE-NAME}-${VERSION} ."
-                }
             }
         }
         stage('Docker Push') {
             steps {
-                container('docker'){
                     withDockerRegistry([credentialsId: "${REGISTRY_CREDENTIAL}",url: ""]) {
-                        sh "docker push ${REGISTRY}:${SERVICE-NAME}-${VERSION}"
-                }
+                    sh "docker push ${REGISTRY}:${SERVICE-NAME}-${VERSION}"
             }
 
         }

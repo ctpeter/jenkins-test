@@ -17,25 +17,27 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                    sh "docker build -t ${REGISTRY}:${SERVICE}-${VERSION} ."
-                    sh "export IMAGE_ID=`docker image ls --filter reference=*${SERVICE}* -q`"
-                    sh "docker tag $IMAGE_ID ${REGISTRY}/${SERVICE}:${VERSION}"
+                    sh '''
+                    docker build -t ${REGISTRY}:${SERVICE}-${VERSION} .
+                    export IMAGE_ID=`docker image ls --filter reference=*${SERVICE}* -q`
+                    docker tag $IMAGE_ID ${REGISTRY}/${SERVICE}:${VERSION}
+                    '''
             }
         }
         stage('Docker Push') {
             steps {
                     withDockerRegistry([credentialsId: "${REGISTRY_CREDENTIAL}",url: ""]) {
-                    sh "docker push ${REGISTRY}:${SERVICE}-${VERSION}"
+                    sh "docker push ${REGISTRY}/${SERVICE}:${VERSION}"
             }
 
         }
     }
         stage('K3S Deploy') {
             steps {
-                container('helm') {
-                    sh "helm package charts/${SERVICE} --app-version ${VERSION}"
-                    sh "helm upgrade --history-max=5 --install=true --namespace=salami --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz ./helm"
-                }
+                    sh '''
+                    /usr/local/bin/helm package charts/${SERVICE} --app-version ${VERSION}
+                    #helm upgrade --history-max=5 --install=true --namespace=salami --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz
+                    '''
             }
         }
     }

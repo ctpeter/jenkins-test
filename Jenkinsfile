@@ -2,17 +2,17 @@ pipeline {
     environment {
         REGISTRY = 'salamislicing'
         REGISTRY_CREDENTIAL = 'salamislicing-docker'
-        SERVICE = readMavenPom().getArtifact()
-        VERSION = readMavenPom().getVersion()
+        SERVICE = 'demo'
+        VERSION = '0.0.1-SNAPSHOT'
     }
-    agent none  
+    agent { node { label 'master' } }
     stages {
         stage('Build') {
-            agent {
-                docker { image 'maven:3.8.1-adoptopenjdk-11' }
-            }
             steps {
-                    sh 'mvn clean package'
+                    sh 'export M2_HOME=/usr/local/apache-maven'
+                    sh 'export M2=$M2_HOME/bin'
+                    sh 'export PATH=$M2:$PATH'
+                    sh '/usr/local/apache-maven/bin/mvn clean package'
             }
         }
         stage('Docker Build') {

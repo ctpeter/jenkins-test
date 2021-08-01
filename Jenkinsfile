@@ -21,7 +21,7 @@ pipeline {
             steps {
                     sh '''
                     export IMAGE_ID=`docker image ls --filter reference=*${SERVICE}* -q`
-                    docker image rm -f $IMAGE_ID
+                    docker image w -f $IMAGE_ID
                     docker build -t ${REGISTRY}:${SERVICE}-${VERSION} .
                     export IMAGE_ID=`docker image ls --filter reference=*${SERVICE}* -q`
                     docker tag $IMAGE_ID ${REGISTRY}/${SERVICE}:${VERSION}

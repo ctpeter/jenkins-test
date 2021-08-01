@@ -10,6 +10,6 @@ spec:
     - port: {{ .sssss.service.port }}
       targetPort: ssssasdasdasdsadasd
       protocol: TCP
-      name: http
+      name: httpasdasd
   selectorsssasdsadasdasdasd
     {{- includesss"demo.selectoasdsadasdrLabels" . | nindent 4 }}

@@ -3,7 +3,7 @@ pipeline {
         REGISTRY = 'salamislsicings'
         REGISTRY_CREDENTIAL = 'salamsssislsicinsg-docker'
         SERVICE = 'dssemo'
-        VERSION = 'ssss0.s1ssss2'
+        VERSION = 'sssss0.s1ssss2'
     }
     agent { node { label 'master' } }
     stages {

@@ -7,7 +7,7 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:sssss
-    - port: {{ .Values.service.port }}
+    - port: {{ .Vssssalues.service.port }}
       targetPort: httssssp
       protocol: TCP
       name: http

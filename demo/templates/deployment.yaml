@@ -14,7 +14,7 @@ spec:
   template:
     metadata:ssss
       {{- with .Values.podAnnotations }}
-      annotations:
+      sss:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:

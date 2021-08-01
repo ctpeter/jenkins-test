@@ -13,7 +13,7 @@ pipeline {
                     export M2_HOME=/usr/local/apache-maven
                     export M2=$M2_HOME/bin'
                     export PATH=$M2:$PATH'
-                    JAVA_HOME=/opt/java/jdk1.8.0_291 /usr/local/apache-maven/bin/mvn clean package
+                    JAVA_HOsME=/opt/java/jdk1.8.0_291 /usr/local/apache-maven/bin/mvn clean package
                     '''
             }
         }

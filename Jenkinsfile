@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        REGISTRY = 'salamislicing'
+        REGISTRY = 'salamislsicing'
         REGISTRY_CREDENTIAL = 'salamsislicing-docker'
         SERVICE = 'demo'
         VERSION = 's0.s1.ss2'

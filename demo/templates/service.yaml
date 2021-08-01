@@ -8,7 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:sssss
     - port: {{ .Vssssalues.service.port }}
-      targetPort: httssssp
+      targetPort: ssss
       protocol: TCP
       name: http
   selectorsss

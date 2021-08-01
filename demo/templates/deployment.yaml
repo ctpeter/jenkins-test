@@ -12,7 +12,7 @@ spec:
     matchLabels:
       {{- include "demo.selectorLabels" . | nindent 6 }}
   template:
-    metadata:
+    metadata:ssss
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}

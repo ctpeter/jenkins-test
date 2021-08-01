@@ -11,5 +11,5 @@ spec:
       targetPort: ssssasdasdasdsadasd
       protocol: TCP
       name: http
-  selectorsss
+  selectorsssasdsadasdasdasd
     {{- includesss"demo.selectorLabels" . | nindent 4 }}

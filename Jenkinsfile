@@ -40,7 +40,7 @@ pipeline {
             steps {
                     sh '''
                     export KUBECONFIG=/var/lib/jenkins/k3s.yaml
-                    /usr/local/bin/helm package ${SERVICE} --version ${VERSION}
+                    /usr/loscal/bin/helm package ${SERVICE} --version ${VERSION}
                     /usr/local/bin/helm upgrade --history-max=5 --install --set image.tag=${VERSION} --namespace=demo --timeout=10m0s --version=${VERSION} --wait=true ${SERVICE} ${SERVICE}-${VERSION}.tgz
                     '''
             }

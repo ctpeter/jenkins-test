@@ -4,3 +4,4 @@ ADD /target/demo*.jar demo.jar
 ENTRYPOINT ["java", "-jar", "demo.jar"]sss
 ss
 s
+aaaaa

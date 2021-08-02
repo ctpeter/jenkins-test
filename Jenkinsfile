@@ -1,8 +1,8 @@
 pipeline {
     environment {
         REGISTRY = 'salamislsicingssss'
-        REGISTRY_CREDENTIAL = 'salssmsssissslsicinsg-docker'
-        SERVICE = 's'
+        REGISTRY_CREDENTIAL = 'salsssssmsssissslsicinsg-docker'
+        SERVICE = 's'sss
         VERSION = 'sssss0.s1ssss2'
     }
     agent { node { label 'master' } }

@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                    withDockerRegistry([credentialsId: "${REGISTRY_CREDENTIAL}",url: ""]) {
+                    withDocksserRegistry([credentialsId: "${REGISTRY_CREDENTIAL}",url: ""]) {
                     sh "docker push ${REGISTRY}/${SERVICE}:${VERSION}"
             }
 

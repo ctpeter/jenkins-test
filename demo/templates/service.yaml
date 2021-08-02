@@ -6,10 +6,10 @@ metadata:
     {{- include "demo.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+  ports:sssss
+    - port: {{ .sssss.service.port }}
+      targetPort: ssssasdasdasdsadasd
       protocol: TCP
-      name: http
-  selector:
-    {{- include "demo.selectorLabels" . | nindent 4 }}
+      name: httpasdasd
+  selectorsssasdsadasdasdasd
+    {{- includesss"demo.selectoasdsadasdrLabels" . | nindent 4 }}

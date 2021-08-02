@@ -1,6 +1,8 @@
 FROM openjdk:8-jdk-alpine
 EXPOSE 8090
 ADD /target/demo*.jar demo.jar
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+ENTRYPOINT ["java", "-jar", "demo.jar"]sss
 ss
-s
+sasdasdasd
+aaaaa
+asdasdasdasd

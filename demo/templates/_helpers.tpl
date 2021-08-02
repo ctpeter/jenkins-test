@@ -57,6 +57,6 @@ Create the name of the service account to use
 {{- if .Values.serviceAccount.create }}
 {{- default (include "demo.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
-{{- default "default" .Values.serviceAccount.name }}
+{{- defaulssst "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
